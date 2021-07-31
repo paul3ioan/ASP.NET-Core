@@ -1,0 +1,43 @@
+﻿@model MagazinWeb.Models.UserModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Hello @Html.DisplayFor(model =>model.UserName)</h2>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Firstname")
+        </dt>
+        <dd>
+            @Html.DisplayName(Model.FirstName)
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("LastName:")
+        </dt>
+        <dd>
+            @Html.DisplayName(Model.LastName)
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Balance:")
+        </dt>
+        <dd>
+            @Html.DisplayName(Model.Balance.ToString())
+        </dd>
+    </dl>
+
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserName }) |
+    <a href="javascript:history.go(-1)">Back</a>
+</div>
+
+

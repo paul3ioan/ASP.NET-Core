@@ -1,0 +1,36 @@
+﻿@model List<MagazinWeb.Models.ProductsModel>
+@{
+    ViewData["Title"] = "Products";
+}
+<head></head>    
+<h1>Products</h1>
+    <form asp-action="Products" asp-route-returnurl="@ViewData["ReturnUrl"]">
+    <table class="table table-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Buy</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int contor = 0;
+                
+                foreach(var client in Model)
+                {
+                    contor++;
+                    <tr>
+                    <th scope="row">@Html.DisplayName(contor.ToString())</th>
+                    <td>@Html.DisplayName(client.Name)</td>
+                    <td>@Html.DisplayName(client.Price.ToString())</td>
+                    <td>@Html.DisplayName(client.Cantitate.ToString())</td>
+                    <td>@Html.ActionLink("BuyProduct", "Products1",new { id = client.ProductID })</td>
+                </tr>
+                    }
+                }
+
+            </tbody>
+    </table>
+        </form>

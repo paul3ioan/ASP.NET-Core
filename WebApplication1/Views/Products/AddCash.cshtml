@@ -1,0 +1,33 @@
+﻿@model MagazinWeb.Models.UserModel;
+@{
+    ViewData["Title"] = "AddCash";
+}
+
+<h2>You have @Html.DisplayName(Model.Balance.ToString())</h2>
+
+<div class="container">
+    <div class="flex-container">
+        <form asp-action="AddCash" asp-route-returnurl="@ViewData["ReturnUrl"]" enctype="multipart/form-data">
+            <div class="col">
+                <!--<div asp-validation-summary="All" class="text-danger"></div> -->
+                <div class="form-group">
+                    <label asp-for="Amount" class="control-label"></label>
+                    <input asp-for="Amount" class="form-control" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+
+                    <label asp-for="Operation" class="control-label"></label>
+                    <input asp-for="Operation" class="form-control" />
+                    <span asp-validation-for="Operation" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-default" />
+                    </div>
+                </div>
+
+        </form>
+    </div>
+</div>    

@@ -1,0 +1,48 @@
+﻿@model List<MagazinWeb.Models.UserModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RemoveEmployer</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.min.css" />
+</head>
+<body>
+    <form asp-action="Products" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        <table class="table table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Press to fire</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int contor = 0;
+
+                    foreach (var client in Model)
+                    {
+                        contor++;
+                        <tr>
+                            <th scope="row">@Html.DisplayName(contor.ToString())</th>
+                            <td>@Html.DisplayName(client.UserName)</td>
+                            <td>@Html.DisplayName(client.FirstName.ToString())</td>
+                            <td>@Html.DisplayName(client.LastName.ToString())</td>
+                            <td>@Html.ActionLink("RemoveEmploy", "RemoveEmploy", new { id = client.UserName })</td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
